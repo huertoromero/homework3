@@ -11,17 +11,20 @@ class cliente{
             
         }
     }
+
+    let clientes = [];
   
     button = document.getElementById("button").addEventListener('click',show);
     
-  function agregarCliente() {
+  function crearCliente() {
 
-        let name = document.querySelector('#name').value;
-        let lastname = document.querySelector('#lastname').value;
-        let dni = document.querySelector('#dni').value;
-        let balance = document.querySelector('#balance').value;
-        let cliente = new cliente(name,lastname,dni,balance);
-        return cliente;
+        let client = {};
+        const name = document.querySelector('#name').value;
+        const lastname = document.querySelector('#lastname').value;
+        const dni = document.querySelector('#dni').value;
+        const balance = document.querySelector('#balance').value;
+        client = new cliente(name,lastname,dni,balance);
+        return client;
     }
 
     function show(e){
@@ -31,8 +34,9 @@ class cliente{
         let li = document.createElement("li");
         ul.appendChild(li);
 
-        let fullname = cliente.getFullName;
         
+        const cliente = crearCliente();
+        let fullname = cliente.getFullName();
         let content = document.createTextNode(fullname);
         li.appendChild(content);
 
